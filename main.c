@@ -154,91 +154,91 @@ saisir2:
 
         case 3:
 
-                //menu de Operation
-                menu_de_Operation:
-                printf("\n-----------------------\n");
-                printf("\n **************  Operation  **************\n\n");
-                printf("-----------------------\n\n");
-                printf("choisir votre operation \n");
-                printf("1: Depot\n\n");
-                printf("2: Retraite\n\n");
-                printf("choisir votre operation s'il vous plait: ");
-                scanf("%d",&op);
-                system ("cls");
+            //menu de Operation
+menu_de_Operation:
+            printf("\n-----------------------\n");
+            printf("\n **************  Operation  **************\n\n");
+            printf("-----------------------\n\n");
+            printf("choisir votre operation \n");
+            printf("1: Depot\n\n");
+            printf("2: Retraite\n\n");
+            printf("choisir votre operation s'il vous plait: ");
+            scanf("%d",&op);
+            system ("cls");
 
-                if(op<1 || op>2)
+            if(op<1 || op>2)
+            {
+
+                printf("\n\n************** veuillez choisir un nombre entre 1 et 2 **************\n\n");
+                system ("pause");
+                system ("cls");
+                goto menu_de_Operation;
+            }
+            else
+
+
+                switch(op)
                 {
 
-                    printf("\n\n************** veuillez choisir un nombre entre 1 et 2 **************\n\n");
-                    system ("pause");
-                    system ("cls");
-                    goto menu_de_Operation;
-                }
-                else
+                //Depot
 
+                case 1:
 
-                    switch(op)
+                    printf("\n\n **************  Depot  **************\n\n");
+                    printf("entre votre CIN :");
+                    scanf("%s",CIN);
+                    printf("\n");
+                    for (i=0; i<n; i++)
                     {
-
-                    //Depot
-
-                    case 1:
-
-                        printf("\n\n **************  Depot  **************\n\n");
-                        printf("entre votre CIN :");
-                        scanf("%s",CIN);
-                        printf("\n");
-                        for (i=0; i<n; i++)
+                        if( strcmp(CIN, cin[i] ) ==0 )
                         {
-                            if( strcmp(CIN, cin[i] ) ==0 )
-                            {
-                                printf("Entrez le montant que vous souhaitez deposer: ");
-                                scanf("%lf",&D);
-                                printf("\n");
-                                montant[i]=montant[i]+D;
-                                printf("nouveau montant %.2f \n\n",montant[i]);
+                            printf("Entrez le montant que vous souhaitez deposer: ");
+                            scanf("%lf",&D);
+                            printf("\n");
+                            montant[i]=montant[i]+D;
+                            printf("nouveau montant %.2f \n\n",montant[i]);
 
-                            }
-                            else printf("ce compte n'existe pas: \n\n");
-                            break;
                         }
-                        system("pause");
-                        system("cls");
-                        break;
-
-                    //Retraite
-
-                    case 2:
-
-                        printf("\n\n **************  Retraite  **************\n\n");
-                        printf("entre votre CIN :");
-                        scanf("%s",CIN);
-                        printf("\n");
-                        for (i=0; i<n; i++)
-                        {
-                            if( strcmp (CIN, cin[i] ) ==0 )
-                            {
-                                printf("Entrez le montant que vous souhaitez retirer: ");
-                                scanf("%lf",&D);
-                                printf("\n");
-                                if(montant[i]>D)
-                                {
-                                    montant[i]=montant[i]-D;
-                                    printf("nouveau montant %.2f \n\n",montant[i]);
-                                }
-                                else
-                                {
-                                    printf("\nLe montant que vous souhaitez retirer est superieur au montant que vous avez \n\n");
-                                }
-
-                            }
-                            else printf("ce compte n'existe pas: \n\n");
-                            break;
-                        }
-                        system("pause");
-                        system("cls");
+                        else printf("ce compte n'existe pas: \n\n");
                         break;
                     }
+                    system("pause");
+                    system("cls");
+                    break;
+
+                //Retraite
+
+                case 2:
+
+                    printf("\n\n **************  Retraite  **************\n\n");
+                    printf("entre votre CIN :");
+                    scanf("%s",CIN);
+                    printf("\n");
+                    for (i=0; i<n; i++)
+                    {
+                        if( strcmp (CIN, cin[i] ) ==0 )
+                        {
+                            printf("Entrez le montant que vous souhaitez retirer: ");
+                            scanf("%lf",&D);
+                            printf("\n");
+                            if(montant[i]>D)
+                            {
+                                montant[i]=montant[i]-D;
+                                printf("nouveau montant %.2f \n\n",montant[i]);
+                            }
+                            else
+                            {
+                                printf("\nLe montant que vous souhaitez retirer est superieur au montant que vous avez \n\n");
+                            }
+
+                        }
+                        else printf("ce compte n'existe pas: \n\n");
+                        break;
+                    }
+                    system("pause");
+                    system("cls");
+                    break;
+                }
 
 
             break;
@@ -246,7 +246,7 @@ saisir2:
         //Menu Affichage
 
         case 4:
-            menu_affichage:
+menu_affichage:
             printf("\n-----------------------\n");
             printf("**************  Menu Affichage  **************\n");
             printf("-----------------------\n\n");
